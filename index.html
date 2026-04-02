@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>China Holiday Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content container">
+        <div>
+          <p class="eyebrow">Plan smarter. Explore deeper.</p>
+          <h1>China Holiday Planner</h1>
+          <p class="hero__text">
+            Build a China itinerary, compare destinations, estimate your budget,
+            and keep all your trip ideas in one clean workspace.
+          </p>
+        </div>
+        <div class="hero__panel card">
+          <h2 id="summary-trip-name">My China Adventure</h2>
+          <div class="hero__stats">
+            <div>
+              <span class="stat-label">Trip length</span>
+              <strong id="summary-days">7 days</strong>
+            </div>
+            <div>
+              <span class="stat-label">Shortlist</span>
+              <strong id="summary-shortlist">0 places</strong>
+            </div>
+            <div>
+              <span class="stat-label">Estimated total</span>
+              <strong id="summary-budget">CNY 0</strong>
+            </div>
+          </div>
+          <button id="generate-route" class="button button--primary">
+            Generate starter route
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container app-shell">
+      <section class="card section" aria-labelledby="trip-setup-title">
+        <div class="section__header">
+          <div>
+            <p class="section__eyebrow">Step 1</p>
+            <h2 id="trip-setup-title">Trip setup</h2>
+          </div>
+          <p class="section__description">
+            Define your dates, budget and travel style. Your itinerary and
+            budget estimate update automatically.
+          </p>
+        </div>
+
+        <form id="trip-form" class="trip-form">
+          <label>
+            <span>Trip name</span>
+            <input id="trip-name" name="tripName" type="text" placeholder="Golden Week adventure" />
+          </label>
+          <label>
+            <span>Start date</span>
+            <input id="start-date" name="startDate" type="date" />
+          </label>
+          <label>
+            <span>End date</span>
+            <input id="end-date" name="endDate" type="date" />
+          </label>
+          <label>
+            <span>Budget (CNY)</span>
+            <input id="budget" name="budget" type="number" min="0" step="100" placeholder="12000" />
+          </label>
+          <label>
+            <span>Travel style</span>
+            <select id="travel-style" name="travelStyle">
+              <option value="budget">Budget</option>
+              <option value="comfort">Comfort</option>
+              <option value="premium">Premium</option>
+            </select>
+          </label>
+          <div class="form-block">
+            <span>Interests</span>
+            <div id="interest-picks" class="chip-group"></div>
+          </div>
+        </form>
+      </section>
+
+      <section class="grid-two">
+        <section class="card section" aria-labelledby="explorer-title">
+          <div class="section__header">
+            <div>
+              <p class="section__eyebrow">Step 2</p>
+              <h2 id="explorer-title">Destination explorer</h2>
+            </div>
+            <p class="section__description">
+              Filter places by vibe, region and interests, then save the ones you
+              want in your plan.
+            </p>
+          </div>
+
+          <div class="filters">
+            <label>
+              <span>Search</span>
+              <input id="search-input" type="search" placeholder="Search cities, highlights or tags" />
+            </label>
+            <label>
+              <span>Region</span>
+              <select id="region-filter"></select>
+            </label>
+            <label>
+              <span>Theme</span>
+              <select id="tag-filter"></select>
+            </label>
+          </div>
+
+          <div id="destination-list" class="destination-list"></div>
+        </section>
+
+        <aside class="card section" aria-labelledby="toolkit-title">
+          <div class="section__header">
+            <div>
+              <p class="section__eyebrow">Step 3</p>
+              <h2 id="toolkit-title">Planner toolkit</h2>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="mini-card">
+              <h3>Budget pulse</h3>
+              <p id="budget-helper" class="muted"></p>
+            </div>
+
+            <div class="mini-card">
+              <h3>Saved places</h3>
+              <div id="shortlist-panel" class="shortlist-panel"></div>
+            </div>
+
+            <div class="mini-card">
+              <h3>Practical checklist</h3>
+              <div id="checklist" class="checklist"></div>
+            </div>
+
+            <div class="mini-card">
+              <h3>Export</h3>
+              <p class="muted">
+                Download your current plan as a Markdown file to keep or share.
+              </p>
+              <button id="export-plan" class="button button--secondary">
+                Export trip plan
+              </button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="card section" aria-labelledby="itinerary-title">
+        <div class="section__header">
+          <div>
+            <p class="section__eyebrow">Step 4</p>
+            <h2 id="itinerary-title">Itinerary board</h2>
+          </div>
+          <p class="section__description">
+            Assign saved destinations to days and keep notes for transport,
+            hotels, reservations or must-eat spots.
+          </p>
+        </div>
+
+        <div id="itinerary-board" class="itinerary-board"></div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>
+        Built as a lightweight static web app. Perfect for editing locally or
+        publishing via GitHub Pages.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
