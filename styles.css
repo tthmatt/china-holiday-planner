@@ -1,0 +1,450 @@
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-alt: #f8fafc;
+  --text: #102033;
+  --muted: #5f6f82;
+  --line: #dce5ef;
+  --accent: #1e63ff;
+  --accent-soft: #e9f0ff;
+  --success: #0f9f6e;
+  --warning: #c98212;
+  --shadow: 0 20px 45px rgba(16, 32, 51, 0.08);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #f7faff 0%, #f4f7fb 25%, #eef4fb 100%);
+  color: var(--text);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.container {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 3.5rem 0 2rem;
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.hero h1 {
+  margin: 0.3rem 0 0.9rem;
+  font-size: clamp(2.3rem, 4vw, 4.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.hero__text {
+  max-width: 60ch;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.eyebrow,
+.section__eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(220, 229, 239, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.hero__panel {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero__panel h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+.hero__stats div,
+.mini-card,
+.day-card,
+.destination-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.hero__stats div {
+  padding: 0.9rem;
+}
+
+.stat-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-bottom: 0.35rem;
+}
+
+.app-shell {
+  display: grid;
+  gap: 1.4rem;
+  padding-bottom: 3rem;
+}
+
+.section {
+  padding: 1.4rem;
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.2rem;
+}
+
+.section__header h2 {
+  margin: 0.35rem 0 0;
+  font-size: 1.5rem;
+}
+
+.section__description,
+.muted,
+.footer {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.trip-form {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.trip-form label,
+.filters label,
+.day-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.trip-form input,
+.trip-form select,
+.filters input,
+.filters select,
+.day-card textarea,
+.assign-select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  padding: 0.8rem 0.9rem;
+  color: var(--text);
+}
+
+.trip-form input:focus,
+.trip-form select:focus,
+.filters input:focus,
+.filters select:focus,
+.day-card textarea:focus,
+.assign-select:focus {
+  outline: 2px solid rgba(30, 99, 255, 0.18);
+  border-color: rgba(30, 99, 255, 0.45);
+}
+
+.form-block {
+  grid-column: span 2;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-alt);
+}
+
+.chip input {
+  accent-color: var(--accent);
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 1.4rem;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.destination-list,
+.itinerary-board,
+.shortlist-panel,
+.checklist,
+.stack {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.destination-list {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.destination-card,
+.day-card,
+.mini-card {
+  padding: 1rem;
+}
+
+.destination-card h3,
+.day-card h3,
+.mini-card h3 {
+  margin: 0;
+}
+
+.destination-card__meta,
+.destination-card__highlights,
+.destination-card__actions,
+.saved-item,
+.day-list-item,
+.day-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.destination-card__meta {
+  margin: 0.75rem 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 0.32rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.pill--neutral {
+  background: #edf2f7;
+  color: #415162;
+}
+
+.destination-card p,
+.day-card p,
+.mini-card p {
+  color: var(--muted);
+}
+
+.destination-card__actions {
+  justify-content: space-between;
+  margin-top: 0.9rem;
+}
+
+.button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.85rem 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button--primary {
+  background: linear-gradient(135deg, #1e63ff 0%, #3e8dff 100%);
+  color: white;
+  box-shadow: 0 12px 24px rgba(30, 99, 255, 0.28);
+}
+
+.button--secondary {
+  background: var(--surface-alt);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--accent);
+  padding-inline: 0.25rem;
+}
+
+.button--small {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.92rem;
+}
+
+.shortlist-panel:empty::before {
+  content: "Save a few places from the explorer to start shaping your route.";
+  color: var(--muted);
+}
+
+.saved-item,
+.day-list-item {
+  justify-content: space-between;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem;
+  background: var(--surface-alt);
+}
+
+.saved-item__info strong,
+.day-list-item__info strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.25rem;
+  border-bottom: 1px dashed var(--line);
+}
+
+.check-item:last-child {
+  border-bottom: 0;
+}
+
+.check-item input {
+  accent-color: var(--success);
+  width: 1rem;
+  height: 1rem;
+}
+
+.itinerary-board {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.day-card__header {
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.day-card textarea {
+  min-height: 108px;
+  resize: vertical;
+}
+
+.day-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.8rem 0;
+}
+
+.day-card__empty {
+  color: var(--muted);
+  padding: 0.9rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+}
+
+.footer {
+  padding-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 980px) {
+  .hero__content,
+  .grid-two,
+  .trip-form,
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .form-block {
+    grid-column: auto;
+  }
+
+  .hero__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .section__header {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .section,
+  .hero__panel {
+    padding: 1rem;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .destination-card__actions,
+  .saved-item,
+  .day-list-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
